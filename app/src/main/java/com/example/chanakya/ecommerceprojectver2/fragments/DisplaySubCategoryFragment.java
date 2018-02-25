@@ -132,7 +132,7 @@ public class DisplaySubCategoryFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        adapter = new MyAdapter(getContext(), subCateroryItems);
+                        adapter = new MyAdapter(getContext(), subCateroryItems,"subCategoryFragment");
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);
 

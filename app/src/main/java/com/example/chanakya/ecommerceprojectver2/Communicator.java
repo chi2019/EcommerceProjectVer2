@@ -8,5 +8,5 @@ package com.example.chanakya.ecommerceprojectver2;
 
 public interface Communicator {
 
-    public void show(String categoryId);
+    public void show(String categoryId,String visibleFragment);
 }

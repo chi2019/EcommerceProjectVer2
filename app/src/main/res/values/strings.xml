@@ -2,5 +2,5 @@
     <string name="app_name">EcommerceProjectVer2</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank Display SubCategory fragment</string>
+    <string name="hello_blank_fragment">Hello blank Product Display fragment</string>
 </resources>

@@ -24,16 +24,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Item> productItems;
+    String visibleFragment;
 
     Communicator communicator;
 
     Item item;
 
-    public MyAdapter(Context context, ArrayList<Item> productItems) {
+    public MyAdapter(Context context, ArrayList<Item> productItems,String visibleFragment) {
         this.context = context;
         this.productItems = productItems;
  //       this.communicator = communicator;
         this.communicator = (Communicator) context;
+        this.visibleFragment = visibleFragment;
     }
 
 
@@ -64,7 +66,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                communicator.show(item.getCategoryId());
+                communicator.show(item.getCategoryId(),visibleFragment);
 
 
             }

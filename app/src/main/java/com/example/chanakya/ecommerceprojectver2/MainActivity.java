@@ -3,6 +3,7 @@ package com.example.chanakya.ecommerceprojectver2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.chanakya.ecommerceprojectver2.fragments.DisplayProductsFragment;
 import com.example.chanakya.ecommerceprojectver2.fragments.DisplaySubCategoryFragment;
 import com.example.chanakya.ecommerceprojectver2.fragments.MainFragment;
 
@@ -21,19 +22,37 @@ public class MainActivity extends AppCompatActivity implements Communicator {
 
 
     @Override
-    public void show(String categoryId) {
+    public void show(String categoryId,String visibleFragment) {
 
-        DisplaySubCategoryFragment displaySubCategoryFragment = new DisplaySubCategoryFragment();
 
-        Bundle bundle = new Bundle();
-        bundle.putString("categoryId",categoryId);
-        displaySubCategoryFragment.setArguments(bundle);
+            if(visibleFragment.equals("categoryFragment") ) {
+                Bundle bundle = new Bundle();
+                bundle.putString("categoryId", categoryId);
+                DisplaySubCategoryFragment displaySubCategoryFragment = new DisplaySubCategoryFragment();
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragmentContainer,displaySubCategoryFragment)
-                .addToBackStack(null)
-                .commit();
+                displaySubCategoryFragment.setArguments(bundle);
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainer, displaySubCategoryFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+            else if(visibleFragment.equals("subCategoryFragment")){
+                Bundle bundle = new Bundle();
+                bundle.putString("subcategoryId", categoryId);
+
+                DisplayProductsFragment displayProductsFragment = new DisplayProductsFragment();
+                displayProductsFragment.setArguments(bundle);
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainer,displayProductsFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+
+
     }
 }
 
