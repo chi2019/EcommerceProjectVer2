@@ -6,27 +6,39 @@ package com.example.chanakya.ecommerceprojectver2.model;
 
 public class Item {
 
-    String CategoryName;
-    String CategoryImage;
+    String name;
+    String image;
+    String id;
+    String description;
 
-    public Item(String categoryName, String categoryImage) {
-        CategoryName = categoryName;
-        CategoryImage = categoryImage;
+    public Item(String categoryName, String categoryImage,String categoryId,String description) {
+        name = categoryName;
+        image = categoryImage;
+        id = categoryId;
+        this.description = description;
     }
 
     public String getCategoryName() {
-        return CategoryName;
+        return name;
     }
 
     public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
+        name = categoryName;
     }
 
     public String getCategoryImage() {
-        return CategoryImage;
+        return image;
     }
 
     public void setCategoryImage(String categoryImage) {
-        CategoryImage = categoryImage;
+        image = categoryImage;
+    }
+
+    public String getCategoryId() {
+        return id;
+    }
+
+    public void setCategoryId(String categoryId) {
+        id = categoryId;
     }
 }

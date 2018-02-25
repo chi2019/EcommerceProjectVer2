@@ -2,7 +2,9 @@ package com.example.chanakya.ecommerceprojectver2.fragments;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +44,8 @@ public class RegistrationFragment extends Fragment {
     StringRequest stringRequest;
     Context context;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,7 +84,7 @@ public class RegistrationFragment extends Fragment {
                             ) {
 
 
-                        String[] details = {usernameValue, passwordValue, emailValue, passwordValue};
+                        String[] details = {usernameValue, passwordValue, emailValue, phoneNumberValue};
 
 
                         finalUrl = ADDRESS_URL + "?" + "name=" + usernameValue + "&" + "email=" + emailValue +
@@ -111,7 +115,7 @@ public class RegistrationFragment extends Fragment {
     }
 
 
-    private StringRequest registerWebService(String finalUrl, Context context, String[] details) {
+    private StringRequest registerWebService(String finalUrl, final Context context, final String[] details) {
 
         final String[] userDetails = details;
 
@@ -120,6 +124,7 @@ public class RegistrationFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
 
                     }
                 },

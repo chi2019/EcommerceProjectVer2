@@ -1,13 +1,12 @@
 package com.example.chanakya.ecommerceprojectver2;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.chanakya.ecommerceprojectver2.fragments.DisplayFragment;
+import com.example.chanakya.ecommerceprojectver2.fragments.DisplaySubCategoryFragment;
 import com.example.chanakya.ecommerceprojectver2.fragments.MainFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Communicator {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void show(String categoryId) {
 
+        DisplaySubCategoryFragment displaySubCategoryFragment = new DisplaySubCategoryFragment();
 
+        Bundle bundle = new Bundle();
+        bundle.putString("categoryId",categoryId);
+        displaySubCategoryFragment.setArguments(bundle);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer,displaySubCategoryFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 }
 

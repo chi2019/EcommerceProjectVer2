@@ -9,12 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.example.chanakya.ecommerceprojectver2.Communicator;
 import com.example.chanakya.ecommerceprojectver2.R;
 import com.example.chanakya.ecommerceprojectver2.model.Item;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by chanakya on 2/18/18.
@@ -23,17 +23,17 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
-    ArrayList<Item> countries;
+    ArrayList<Item> productItems;
 
-   // Communicate communicator;
+    Communicator communicator;
 
-    Item country;
+    Item item;
 
-    public MyAdapter(Context context, ArrayList<Item> countries) {
+    public MyAdapter(Context context, ArrayList<Item> productItems) {
         this.context = context;
-        this.countries = countries;
+        this.productItems = productItems;
  //       this.communicator = communicator;
-
+        this.communicator = (Communicator) context;
     }
 
 
@@ -48,25 +48,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-        country = countries.get(position);
+        item = productItems.get(position);
 
        // holder.descrition.setText(item.getDescription());
-        holder.title.setText(country.getCategoryName());
+        holder.title.setText(item.getCategoryName());
 
 
-       if (country.getCategoryImage().isEmpty()) {
+       if (item.getCategoryImage().isEmpty()) {
             holder.image.setImageResource(R.drawable.ic_launcher_background);
         } else{
-            Picasso.with(context).load(country.getCategoryImage()).placeholder(R.drawable.ic_launcher_background).into( holder.image);
+            Picasso.with(context).load(item.getCategoryImage()).placeholder(R.drawable.ic_launcher_background).into( holder.image);
 
         }
 
-      /*  holder.title.setOnClickListener(new View.OnClickListener() {
+        holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                communicator.show(item);
+                communicator.show(item.getCategoryId());
+
+
             }
-        });*/
+        });
 
 
 
@@ -75,7 +77,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return countries.size();
+        return productItems.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

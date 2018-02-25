@@ -98,7 +98,7 @@ public class LoginFragment extends Fragment {
 
 
 
-    private StringRequest checkUserRequest(String finalUrl, Context context, String[] details) {
+    private StringRequest checkUserRequest(String finalUrl, final Context context, String[] details) {
 
         final String[] userDetails = details;
 
@@ -109,7 +109,7 @@ public class LoginFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Response",response);
+
                         try {
                            JSONArray array = new JSONArray(response);
                            JSONObject object = array.getJSONObject(0);
@@ -122,17 +122,21 @@ public class LoginFragment extends Fragment {
                             e.printStackTrace();
                         }
                         finally {
-                            DisplayFragment displayFragment = new DisplayFragment();
+                            DisplayCategoryFragment displayCategoryFragment = new DisplayCategoryFragment();
+
+                            sharedPreferences = getActivity().getSharedPreferences("userDetails",context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            Log.i("userid",userid);
+                            Log.i("apikey",apikey);
+
+                            editor.putString("userid",userid);
+                            editor.putString("apikey",apikey);
+                            editor.commit();
 
 
 
-                            Bundle bundle = new Bundle();
-                            bundle.putString("userid",userid);
-                            bundle.putString("apikey",apikey);
-
-                            displayFragment.setArguments(bundle);
-
-                            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer,displayFragment).addToBackStack(null).commit();
+                            getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, displayCategoryFragment).addToBackStack(null).commit();
 
                         }
 
