@@ -48,4 +48,36 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/buttonLoginMain"
         app:layout_constraintTop_toBottomOf="@+id/buttonLoginMain" />
+
+    <Button
+        android:id="@+id/buttonForgetPasswordMain"
+        android:layout_width="151dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="86dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="7dp"
+        android:backgroundTint="#F2BA49"
+        android:text="ForgetPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonResetPasswordMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegistationMain" />
+
+    <Button
+        android:id="@+id/buttonResetPasswordMain"
+        android:layout_width="144dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="86dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:backgroundTint="#F2BA49"
+        android:text="Reset Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonForgetPasswordMain"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegistationMain" />
+
+
 </android.support.constraint.ConstraintLayout>

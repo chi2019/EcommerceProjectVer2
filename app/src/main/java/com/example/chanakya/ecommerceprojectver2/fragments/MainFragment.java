@@ -57,6 +57,25 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
                 break;
 
+
+            case R.id.buttonForgetPasswordMain:
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainer,new ForgotPasswordFragment())
+                        .addToBackStack(null)
+                        .commit();
+
+                break;
+
+            case R.id.buttonResetPasswordMain:
+
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragmentContainer,new ResetPasswordFragment())
+                            .addToBackStack(null)
+                            .commit();
+                break;
+
         }
 
     }
