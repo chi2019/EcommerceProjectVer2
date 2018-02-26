@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,7 +46,7 @@ public class DisplayCategoryFragment extends Fragment {
     String BASE_URL = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_category.php";
     String finalUrl;
 
-    ArrayList<Item> productItems;
+    List<Item> productItems;
     Context context;
     RequestQueue queue;
     StringRequest stringRequest;
@@ -109,7 +110,7 @@ public class DisplayCategoryFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Response",response);
+                        Log.e("CategoryResponse",response);
                         try {
 
 

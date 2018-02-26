@@ -22,12 +22,12 @@ public class MainActivity extends AppCompatActivity implements Communicator {
 
 
     @Override
-    public void show(String categoryId,String visibleFragment) {
+    public void show(String id,String visibleFragment) {
 
 
             if(visibleFragment.equals("categoryFragment") ) {
                 Bundle bundle = new Bundle();
-                bundle.putString("categoryId", categoryId);
+                bundle.putString("categoryId", id);
                 DisplaySubCategoryFragment displaySubCategoryFragment = new DisplaySubCategoryFragment();
 
                 displaySubCategoryFragment.setArguments(bundle);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements Communicator {
             }
             else if(visibleFragment.equals("subCategoryFragment")){
                 Bundle bundle = new Bundle();
-                bundle.putString("subcategoryId", categoryId);
+                bundle.putString("subcategoryId", id);
 
                 DisplayProductsFragment displayProductsFragment = new DisplayProductsFragment();
                 displayProductsFragment.setArguments(bundle);
